@@ -1,10 +1,24 @@
 import random
 
-rand_num = random.randint(22, 48)
+print(f"Выбирите место куда хотите отправиться : \nМосква, \nПитер, \nЕкатеринбург, \nКраснодар.")
+location=input()
+
+if location=="Москва":
+    bus_capacity=50
+elif location=="Питер":
+    bus_capacity=40
+elif location=="Екатеринбург":
+    bus_capacity=30
+elif location=="Краснодар":
+    bus_capacity=20
+
+else:
+    print("Неверно введены значения!!!")
+    exit()
+
 
 num_tickets = int(input("Количество проданных билетов: "))
-print("Всего мест в автобусе: ", rand_num)
-bus_capacity = rand_num
+print("Всего мест в автобусе: ", bus_capacity)
 
 full_bus_capacity = num_tickets // bus_capacity
 num_tickets_left = num_tickets % bus_capacity
