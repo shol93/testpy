@@ -1,25 +1,22 @@
 import random
 
-print(f"Выбирите место куда хотите отправиться : \nМосква, \nПитер, \nЕкатеринбург, \nКраснодар.")
-location=input()
-
-if location=="Москва":
-    bus_capacity=50
-elif location=="Питер":
-    bus_capacity=40
-elif location=="Екатеринбург":
-    bus_capacity=30
-elif location=="Краснодар":
-    bus_capacity=20
-
-else:
-    print("Неверно введены значения!!!")
-    exit()
-
-
 num_tickets = int(input("Количество проданных билетов: "))
-print("Всего мест в автобусе: ", bus_capacity)
+bus_capacity=20 # Кол-во мест в автобусе
 
-full_bus_capacity = num_tickets // bus_capacity
-num_tickets_left = num_tickets % bus_capacity
-print(f"Заполнено автобусов: {full_bus_capacity}\nОсталось: {num_tickets_left}")
+bus_quantity=num_tickets//bus_capacity # Полный автобус
+num_tickets=num_tickets%bus_capacity # Ост. пассажиры
+
+has_partial_bus=False
+empty_seats=0
+
+if num_tickets>=bus_capacity/2:
+    bus_quantity+=1
+    has_partial_bus=True
+    empty_seats=bus_capacity-num_tickets
+    num_tickets=0
+
+    
+
+
+
+print(bus_quantity, num_tickets, has_partial_bus, empty_seats)
